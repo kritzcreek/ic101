@@ -4,23 +4,17 @@
       "main": "src/ic101/main.mo",
       "type": "motoko"
     },
-    "ic101_assets": {
+    "ic101_test": {
       "dependencies": [
         "ic101"
       ],
-      "frontend": {
-        "entrypoint": "src/ic101_assets/public/index.js"
-      },
-      "source": [
-        "src/ic101_assets/assets",
-        "dist/ic101_assets/"
-      ],
-      "type": "assets"
+      "main": "src/ic101_test/main.mo",
+      "type": "motoko"
     }
   },
   "defaults": {
     "build": {
-      "packtool": ""
+      "packtool": "vessel sources"
     }
   },
   "dfx": "0.6.2",
