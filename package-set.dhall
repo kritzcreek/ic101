@@ -4,24 +4,11 @@ let upstream =
 let Package =
     { name : Text, version : Text, repo : Text, dependencies : List Text }
 
-let
-  -- This is where you can add your own packages to the package-set
-  additions =
-    [] : List Package
+let additions = [] : List Package
 
-let
-  {- This is where you can override existing packages in the package-set
-
-     For example, if you wanted to use version `v2.0.0` of the foo library:
-     let overrides = [
-         { name = "foo"
-         , version = "v2.0.0"
-         , repo = "https://github.com/bar/foo"
-         , dependencies = [] : List Text
-         }
-     ]
-  -}
-  overrides =
-    [] : List Package
+let overrides =
+    [ { name = "base", version = "441402a7a3fcdaac3e4d59b3b1d5c205608c6c1b", repo = "https://github.com/dfinity/motoko-base", dependencies = [] : List Text }
+    , { name = "matchers", version = "v0.1.0", repo = "https://github.com/kritzcreek/motoko-matchers", dependencies = [] : List Text }
+    ]
 
 in  upstream # additions # overrides

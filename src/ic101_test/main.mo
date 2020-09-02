@@ -1,25 +1,30 @@
 import Canister "canister:ic101";
-import Tester "Tester";
+import C "mo:matchers/Canister";
 import M "mo:matchers/Matchers";
 import T "mo:matchers/Testable";
 
 actor {
-    let tester = Tester.Tester({ batchSize = 1 });
-    public shared func test() : async Text {
-        let result = await tester.run([
-            func () : async Tester.TestResult = async {
-                let greeting = await Canister.greet("Christoph");
-                Tester.attempt(greeting, M.equals(T.text("Hello, Christoph!")))
-            },
-            // func () : async Tester.TestResult = async {
-            //     let greeting = await Canister.greet("Christoph");
-            //     Tester.attempt(greeting, M.equals(T.text("Hello, Christoph!")))
-            // },
-            func () : async Tester.TestResult = async {
-                let greeting = await Canister.greet("Voldemort");
-                #fail(greeting)
-            }
-        ]);
-        result
+    let it = C.Tester({ batchSize = 2 });
+    public shared func test() : async C.Protocol {
+
+        it.should("greet me", func () : async C.TestResult = async {
+          let greeting = await Canister.greet("Christoph");
+          M.attempt(greeting, M.equals(T.text("Hello, Christoph!")))
+        });
+
+        it.shouldFailTo("greet him-whose-name-shall-not-be-spoken", func () : async () = async {
+          ignore await Canister.greet("Voldemort")
+        });
+
+        it.should("greet Claudio", func () : async C.TestResult = async {
+          let greeting = await Canister.greet("Claudio");
+          M.attempt(greeting, M.equals(T.text("Hello, Karl!")))
+        });
+
+        it.shouldFailTo("greet Joachim", func () : async () = async {
+          ignore await Canister.greet("Joachim");
+        });
+
+        await it.run()
     }
 }
