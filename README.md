@@ -1,20 +1,18 @@
-# ic101
+# Unit testing canisters in Motoko
 
-Welcome to your new ic101 project and to the internet computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
+This repository demonstrates how to use the [`matchers`](https://github.com/kritzcreek/motoko-matchers) library to unit test canisters on the Internet Computer.
 
-To get started, you might want to explore the project directory structure and the default configuration file. Working with this project in your development environment will not affect any production deployment or identity tokens.
+## Project setup:
+The project is split into two canisters, the "canister under test" called `ic101` and a canister containing test for it,
+called `ic101_test`.
 
-To learn more before you start working with ic101, see the following documentation available online:
+`ic101` exposes a `greet` function that returns a greeting for all names but `"Voldemort"` which makes it trap.
 
-- [Quick Start](https://sdk.dfinity.org/docs/quickstart/quickstart.html)
-- [SDK Developer Tools](https://sdk.dfinity.org/docs/developers-guide/sdk-guide.html)
-- [Motoko Programming Language Guide](https://sdk.dfinity.org/docs/language-guide/motoko.html)
-- [Motoko Language Quick Reference](https://sdk.dfinity.org/docs/language-guide/language-manual.html)
+`ic101_test` exposes a `test` function that should be called repeatedly until all tests have passed. The scripting for this might move into dfx at some point.
 
-If you want to start working on your project right away, you might want to try the following commands:
-
-```bash
-cd ic101/
-dfx help
-dfx config --help
-```
+Relevant files to check out:
+  - [`vessel.dhall`](./vessel.dhall) adds the dependencies on `base` and `matchers`
+  - [`package-set.dhall`](./package-set.dhall) contains the exact versions needed to make this work at this point in time
+  - [`dfx.json`](./dfx.json) configures the test canister, as well as the `vessel` invocations under the `"default"` key. 
+  - [The canister _under test_](./src/ic101/main.mo) is the minimal greet canister slightly modified.
+  - [The test canister](./src/ic101_test/main.mo) uses the `matchers` library to define its unit tests.
