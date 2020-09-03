@@ -8,7 +8,7 @@ called `ic101_test`.
 
 `ic101` exposes a `greet` function that returns a greeting for all names but `"Voldemort"` which makes it trap.
 
-`ic101_test` exposes a `test` function that should be called repeatedly until all tests have passed. The scripting for this might move into dfx at some point.
+`ic101_test` exposes a `test` function that should be called to run the unit tests. The [`run_test.sh`](./run_test.sh) script can be used to run these and detect test failures, provided both canisters have been installed on the local replica.
 
 Relevant files to check out:
   - [`vessel.dhall`](./vessel.dhall) adds the dependencies on `base` and `matchers`
