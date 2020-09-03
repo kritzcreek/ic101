@@ -5,7 +5,7 @@ import T "mo:matchers/Testable";
 
 actor {
     let it = C.Tester({ batchSize = 2 });
-    public shared func test() : async C.Protocol {
+    public shared func test() : async Text {
 
         it.should("greet me", func () : async C.TestResult = async {
           let greeting = await Canister.greet("Christoph");
@@ -25,6 +25,6 @@ actor {
           ignore await Canister.greet("Joachim");
         });
 
-        await it.run()
+        await it.runAll()
     }
 }
