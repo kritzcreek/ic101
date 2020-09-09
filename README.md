@@ -16,3 +16,18 @@ Relevant files to check out:
   - [`dfx.json`](./dfx.json) configures the test canister, as well as the `vessel` invocations under the `"defaults"` key. 
   - [The canister _under test_](./src/ic101/main.mo) is the minimal greet canister slightly modified.
   - [The test canister](./src/ic101_test/main.mo) uses the `matchers` library to define its unit tests.
+
+Also make sure to check out the [`Canister`](https://kritzcreek.github.io/motoko-matchers/Canister.html) module in the `matchers` library.
+
+## Zero to hero (Step-by-step)
+- Install [dfx](https://sdk.dfinity.org/docs/quickstart/quickstart.html#download-and-install)
+- Install [vessel](https://github.com/kritzcreek/vessel/releases/tag/v0.5.1-alpha)
+```bash
+git clone https://github.com/kritzcreek/ic101.git
+cd ic101
+dfx start --background
+dfx canister create --all
+dfx build
+dfx canister install --all
+./run_test.sh
+```

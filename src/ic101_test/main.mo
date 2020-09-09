@@ -16,11 +16,13 @@ actor {
           ignore await Canister.greet("Voldemort")
         });
 
+        // Will fail
         it.should("greet Claudio", func () : async C.TestResult = async {
           let greeting = await Canister.greet("Claudio");
           M.attempt(greeting, M.equals(T.text("Hello, Karl!")))
         });
 
+        // Will fail
         it.shouldFailTo("greet Joachim", func () : async () = async {
           ignore await Canister.greet("Joachim");
         });
