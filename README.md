@@ -28,6 +28,6 @@ cd ic101
 dfx start --background
 dfx canister create --all
 dfx build
-dfx canister install --all
+dfx canister install --all [--mode='reinstall']
 ./run_test.sh
 ```
