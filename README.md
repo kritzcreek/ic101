@@ -21,7 +21,7 @@ Also make sure to check out the [`Canister`](https://kritzcreek.github.io/motoko
 
 ## Zero to hero (Step-by-step)
 - Install [dfx](https://sdk.dfinity.org/docs/quickstart/quickstart.html#download-and-install)
-- Install [vessel](https://github.com/kritzcreek/vessel/releases/tag/v0.5.1-alpha)
+- Install [vessel](https://github.com/kritzcreek/vessel/releases/tag/v0.5.1)
 ```bash
 git clone https://github.com/kritzcreek/ic101.git
 cd ic101
