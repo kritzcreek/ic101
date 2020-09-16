@@ -1,5 +1,5 @@
 let upstream =
-      https://github.com/kritzcreek/vessel-package-set/releases/download/mo-0.4.2-20200908/package-set.dhall sha256:304d45256bcbe1bbfd0c7ef24c63bfcd8df727df298ad3b097437dadd337c5b8
+      https://github.com/kritzcreek/vessel-package-set/releases/download/mo-0.4.3-20200916/package-set.dhall sha256:3e1d8d20e35550bc711ae94f94da8b0091e3a3094f91874ff62686c070478dd7
 
 let Package =
       { name : Text, version : Text, repo : Text, dependencies : List Text }
