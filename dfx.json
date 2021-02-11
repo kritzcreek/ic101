@@ -17,18 +17,6 @@
       "packtool": "vessel sources"
     }
   },
-  "dfx": "0.6.7",
-  "networks": {
-    "local": {
-      "bind": "127.0.0.1:8000",
-      "type": "ephemeral"
-    },
-    "tungsten": {
-      "providers": [
-        "https://gw.dfinity.network"
-      ],
-      "type": "persistent"
-    }
-  },
+  "dfx": "0.6.21",
   "version": 1
 }

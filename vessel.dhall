@@ -1,1 +1,4 @@
-{ dependencies = [ "base", "matchers" ], compiler = None Text }
+{
+  dependencies = [ "base", "matchers" ],
+  compiler = None Text
+}
